@@ -1,0 +1,143 @@
+
+html{
+    background-image: linear-gradient(to left,rgba(118, 125, 217, 0.851),rgb(26, 25, 88));
+
+}
+
+body{
+    /* text-align: center; */
+    /* Add font Family */
+    margin: 0;
+    font-family: 'Borel', cursive;
+font-family: 'Josefin Sans', sans-serif;
+font-family: 'Jost', sans-serif;
+font-family: 'Open Sans', sans-serif;
+}
+
+
+header{
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+
+.main{
+    position: relative;
+    /* text-align: center; */
+    margin-left: 4vw;
+    margin-right: 4vw;
+    width: 90vw;
+    height: 50vh;
+    /* background-color: aqua; */
+    /* transform: rotateZ(90deg); */
+}
+
+.piano-container
+{
+    position: absolute;
+    top: 50%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    width: 60vw;
+    height: 50vh;
+    /* background-color: beige; */
+    font-size: 0;
+    /* padding: 10px; */
+    border-radius: 15px;
+    box-shadow: 4px 10px 20px rgba(0, 0, 0, 0.5);
+    margin: 10px;
+}
+
+.key{
+    display: inline-block;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-sizing: border-box;
+    background-color: #F6F4EB;
+    height: 50vh;
+    width: 5vw;
+    border: 1px solid black;
+    transition: all .4s;
+
+}
+
+
+.black-key
+{
+    transition: all .4s;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    display: inline-block;
+    box-sizing: border-box;
+    /* background-color: black; */
+    background-image: linear-gradient(rgb(71, 68, 68),rgba(0,0,0));
+    height: 30vh;
+    z-index: 1;
+    width: 4vw;
+    position: absolute;
+}
+
+.black-key:active{
+    transition: all .4s;
+    transform: translateY(-5px);
+}
+
+.black-key-active{
+    box-shadow: 0 5px 20px rgba(181, 151, 221, 0.722);
+    transform: translate(-3px,-2px);
+    /* background-color: rgb(181, 151, 221); */
+    transition: all .4s;
+}
+
+
+.key:active{
+    box-shadow: 0 5px 20px rgba(181, 151, 221, 0.722);
+    transform: translate(-3px,-2px);
+    /* background-color: rgb(181, 151, 221); */
+    transition: all .4s;
+}
+
+
+@media screen and (max-width: 454px) {
+
+
+
+    .main {
+        height: -20vh;
+        width: -5vw;
+        margin: -50vw;
+    }
+    
+    .piano-container {
+        transform: rotateZ(90deg); /* Apply rotation only for smaller screens (e.g., mobile devices) */
+        width: 130%;
+        height: 20vh;
+        /* position: relative; */
+        /* margin-top: 20px; */
+        top: 90%;
+        left: 45%;
+    }
+
+    .key {
+        height: 20vh;
+        width: 8.3%;
+    }
+
+    .black-key {
+        height: 10vh;
+        width: 5%;
+    }
+}
+
+
+#ft{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #333; 
+    color: #fff;
+    text-align: center;
+    padding: 3px;
+    /* background-image: linear-gradient(to right bottom,rgb(71, 68, 68),rgba(0,0,0)); */
+}
