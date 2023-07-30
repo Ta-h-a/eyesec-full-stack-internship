@@ -13,12 +13,12 @@ for (letter of letters){
 }
 
 $(".f0").on("click",function(){
-    const audio = new Audio("/media/f0.wav")
+    const audio = new Audio("/media/audio/f0.mp3")
     audio.play()
 })
 
 // $(".g0").on("click",function(){
-//     const audio = new Audio("/media/g0.wav")
+//     const audio = new Audio("/media/audio/g0.mp3")
 //     audio.play()
 // })
 
@@ -29,7 +29,7 @@ $(".f0").on("click",function(){
 function clickEvent(letter,i)
 {
     $("."+letter+i).on("click",function(){
-        const audio = new Audio("/media/"+letter+i+".wav")
+        const audio = new Audio("/media/audio/"+letter+i+".mp3")
         audio.play()
     })
 }
@@ -48,7 +48,7 @@ $(document).on("keypress",function(){
         setTimeout(()=>{
             $(".key.a0").removeClass('black-key-active')
         },200)
-        audio = new Audio("/media/a0.wav")
+        audio = new Audio("/media/audio/a0.mp3")
         break;
     
     case "w":
@@ -56,7 +56,7 @@ $(document).on("keypress",function(){
         setTimeout(()=>{
             $(".key.b0").removeClass('black-key-active')
         },200)
-        audio = new Audio("/media/b0.wav")
+        audio = new Audio("/media/audio/b0.mp3")
         break;
     
     case "e":
@@ -64,7 +64,7 @@ $(document).on("keypress",function(){
         setTimeout(()=>{
             $(".key.c0").removeClass('black-key-active')
         },200)
-        audio = new Audio("/media/c0.wav")
+        audio = new Audio("/media/audio/c0.mp3")
         break;
     
     case "r":
@@ -72,7 +72,7 @@ $(document).on("keypress",function(){
         setTimeout(()=>{
             $(".key.d0").removeClass('black-key-active')
         },200)
-        audio = new Audio("/media/d0.wav")
+        audio = new Audio("/media/audio/d0.mp3")
         break;
     
     case "t":
@@ -80,7 +80,7 @@ $(document).on("keypress",function(){
         setTimeout(()=>{
             $(".key.e0").removeClass('black-key-active')
         },200)
-        audio = new Audio("/media/e0.wav")
+        audio = new Audio("/media/audio/e0.mp3")
         break;
     
     case "y":
@@ -88,7 +88,7 @@ $(document).on("keypress",function(){
         setTimeout(()=>{
             $(".key.f0").removeClass('black-key-active')
         },200)
-        audio = new Audio("/media/f0.wav")
+        audio = new Audio("/media/audio/f0.mp3")
         break;
     
     case "u":
@@ -96,7 +96,7 @@ $(document).on("keypress",function(){
         setTimeout(()=>{
             $(".key.g1").removeClass('black-key-active')
         },200)
-        audio = new Audio("/media/g1.wav")
+        audio = new Audio("/media/audio/g1.mp3")
         break;
     
     case "i":
@@ -104,7 +104,7 @@ $(document).on("keypress",function(){
         setTimeout(()=>{
             $(".key.a1").removeClass('black-key-active')
         },200)
-        audio = new Audio("/media/a1.wav")
+        audio = new Audio("/media/audio/a1.mp3")
         break;
     
     case "o":
@@ -112,7 +112,7 @@ $(document).on("keypress",function(){
         setTimeout(()=>{
             $(".key.b1").removeClass('black-key-active')
         },200)
-        audio = new Audio("/media/b1.wav")
+        audio = new Audio("/media/audio/b1.mp3")
         break;
     
     case "p":
@@ -120,7 +120,7 @@ $(document).on("keypress",function(){
         setTimeout(()=>{
             $(".key.c1").removeClass('black-key-active')
         },200)
-        audio = new Audio("/media/c1.wav")
+        audio = new Audio("/media/audio/c1.mp3")
         break;
     
     case "a":
@@ -128,14 +128,14 @@ $(document).on("keypress",function(){
         setTimeout(()=>{
             $(".key.d1").removeClass('black-key-active')
         },200)
-        audio = new Audio("/media/d1.wav")
+        audio = new Audio("/media/audio/d1.mp3")
         break;
     case "s":
         $(".key.e1").addClass('black-key-active')
         setTimeout(()=>{
             $(".key.e1").removeClass('black-key-active')
         },200)
-        audio = new Audio("/media/e1.wav")
+        audio = new Audio("/media/audio/e1.mp3")
         break;
     }
 
