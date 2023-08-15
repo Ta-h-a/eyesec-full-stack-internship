@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* 
+            <div class="student">
+      <div class="student-1">
+        <h1>
+          Student 1: <button onclick="addSubject(this)" class="btn 1">+</button>
+        </h1>
+        <div id="student-subjects-section-1">
+          <input
+            class="input-marks"
+            type="number"
+            placeholder="Enter your marks"
+            style="display: block; margin-bottom: 5px"
+          /><input
+            class="input-marks"
+            type="number"
+            placeholder="Enter your marks"
+            style="display: block; margin-bottom: 5px"
+          /><input
+            class="input-marks"
+            type="number"
+            placeholder="Enter your marks"
+            style="display: block; margin-bottom: 5px"
+          /><input
+            class="input-marks"
+            type="number"
+            placeholder="Enter your marks"
+            style="display: block; margin-bottom: 5px"
+          />
+        </div>
+        <div id="calculate-section-1">
+          <button onclick="calculate(this)" class="btn-calculate 1">
+            Calculate
+          </button>
+        </div>
+      </div>
+    </div>
+        */
+
+        *{
+            font-family: sans-serif;
+        }
+
+        body{
+            background-color: #916DB3;
+        }
+
+      .my_para:hover {
+        font-size: 1.2rem;
+        transition: all 0.4s;
+      }
+      .my_para {
+        background-color: violet;
+      }
+      .image-styles:hover {
+        transition: all 0.5s;
+        width: 20rem;
+      }
+
+      .student-box{
+        /* display: inline-block; */
+        /* width: 20%; */
+        height: 100%;
+        background-color: aqua;
+        padding: 20px;
+        border: 2px solid black;
+        margin-bottom: 1rem;
+        border-radius: 7px;
+      }
+
+      .input-marks{
+        border-radius: 3px;
+        padding: 5px;
+        width: 70%;
+        margin-top: 20px;
+      }
+
+      button{
+        margin-top: 15px;
+        border-radius: 3px;
+        padding: 7px;
+        background-color: violet;
+      }
+
+      .btn{
+        position: relative;
+        bottom: 5px;
+        /* right: 5px; */
+      }
+
+      .student h1{
+        display: inline-block;
+      }
+
+
+
+
+
+      
+      
+    </style>
+  </head>
+  <body>
+    <h1>Welcome to DOM demonstration</h1>
+    <div id="my_div"></div>
+    <button type="button" id="add_para" onclick="add_para();">
+      Add Paragraph
+    </button>
+    <button type="button" id="remove_style" onclick="remove_style()">
+      Remove Styles
+    </button>
+    <br />
+    <br />
+    <div>
+      <input type="text" id="img_src" required />
+      <button onclick="createImg();">Add Image</button>
+    </div>
+    <h2>Add Student: <button onclick="addStudent()">+</button></h2>
+
+    <div class="student"></div>
+  </body>
+  <script>
+    isTrue = true;
+
+    let studentCount = 1;
+
+    function addStudent() {
+      // <div class="student-" + studentCount>
+      //     <h3>Student: <span>  </span><button onclick="addSubject()">+</button></h3>
+      //     <div id="student-subjects-section">
+
+      //     </div>
+      //     <div id="calculate-section">
+
+      //     </div>
+      // </div>
+      let studentDiv = document.createElement("div");
+      studentDiv.setAttribute("class", "student-" + studentCount);
+      studentDiv.classList.add("student-box")
+      let studentHeading = document.createElement("h1");
+      studentHeading.innerText = "Student " + studentCount + ": ";
+      studentDiv.appendChild(studentHeading);
+      let studentAddSubjectButton = document.createElement("button");
+      studentAddSubjectButton.setAttribute("onclick", "addSubject(this)");
+      studentAddSubjectButton.innerText = "+";
+      studentAddSubjectButton.classList.add("btn");
+      studentAddSubjectButton.classList.add(studentCount);
+      studentHeading.appendChild(studentAddSubjectButton);
+      let studentSubjectSection = document.createElement("div");
+      studentSubjectSection.id = "student-subjects-section-" + studentCount;
+      studentDiv.append(studentSubjectSection);
+      let calculateSection = document.createElement("div");
+      calculateSection.id = "calculate-section-" + studentCount;
+      studentDiv.append(calculateSection);
+
+      document.querySelector(".student").appendChild(studentDiv);
+
+      studentCount += 1;
+    }
+
+    function addSubject(event) {
+      console.log(event);
+      let subjectMarks = document.createElement("input");
+      subjectMarks.classList.add("input-marks");
+      subjectMarks.setAttribute("type", "number");
+      subjectMarks.setAttribute("placeholder", "Enter your marks");
+      subjectMarks.style.display = "block"; 
+      subjectMarks.style.marginBottom = "5px";
+
+      let btnNumber = event.classList[1];
+      document
+        .querySelector("#student-subjects-section-" + btnNumber)
+        .appendChild(subjectMarks);
+
+      if (
+        document.querySelector("#calculate-section-" + btnNumber)
+          .childElementCount < 1
+      ) {
+        // student-subjects-section-1
+        let button = document.createElement("button");
+        button.innerHTML = "Calculate";
+        button.setAttribute("onclick", "calculate(this)");
+        button.classList.add("btn-calculate");
+        button.classList.add(btnNumber);
+        // document.insertBefore("body");
+        document
+          .querySelector("#calculate-section-" + btnNumber)
+          .appendChild(button);
+      }
+    }
+
+    function calculate(event) {
+      let total = 0;
+      for (mark of document.querySelector(
+        "#student-subjects-section-" + event.classList[1]
+      ).childNodes) {
+        if (mark.value == "") {
+          alert("Enter all subject marks");
+          return;
+        } else {
+          total += parseInt(mark.value);
+        }
+      }
+      alert("Student "+event.classList[1]+ " has got " + total + " marks");
+    }
+
+    function createImg() {
+      let user_img_src = document.querySelector("#img_src").value;
+
+      if (user_img_src == "") {
+        alert("Please provide a image link");
+      }
+
+      let img = document.createElement("img");
+      img.setAttribute("src", user_img_src);
+      img.setAttribute("width", "300px");
+      // img.setAttribute("height","300px")
+      img.setAttribute("alt", "Check the image link");
+      img.style.border = "3px solid black";
+      img.classList.add("image-styles");
+      document.body.appendChild(img);
+    }
+
+    function add_para() {
+      for (let i = 0; i < 10; i++) {
+        var my_para = document.createElement("p");
+        my_para.textContent = "Hello world";
+        my_para.setAttribute("class", "my_para");
+        document.getElementById("my_div").appendChild(my_para);
+      }
+    }
+
+    function remove_style() {
+      let paras = document.getElementsByClassName("my_para");
+      if (!(paras.length == 0)) {
+        for (p of document.getElementsByTagName("p")) {
+          p.classList.remove("my_para");
+        }
+      }
+    }
+  </script>
+</html>
