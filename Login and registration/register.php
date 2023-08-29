@@ -62,29 +62,39 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Register Form</h1>
-    <form action="register.php" method="POST">
-    <input required type="text" name="regNo" placeholder="Enter your register no">
-        <br>
-        <br>
-        <input required name="username" type="text" placeholder="Enter your username">
-        <br>
-        <br>
-        <input required name="password" type="password" placeholder="Enter your password">
-        <br>
-        <br>
-        <input required name="email" type="email" placeholder="Enter your email">
-        <br>
-        <br>
-        <input required name="contact" type="number" placeholder="Enter your contact">
-        <br>
-        <br>
-        
-        <button type="submit">Submit</button>
+    <title>Register Form</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #343a40;
+        }
 
-    </form>
+        h1, h2, h3, h4, h5, h6 {
+            color: #fff;
+        }
+    </style>
+</head>
+<body >
+    <div class="container mt-5">
+        <h1 class="mb-4 ">Register Form</h1>
+        <form action="register.php" method="POST">
+            <div class="mb-3">
+                <input required class="form-control" type="text" name="regNo" placeholder="Enter your register no">
+            </div>
+            <div class="mb-3">
+                <input required class="form-control" name="username" type="text" placeholder="Enter your username">
+            </div>
+            <div class="mb-3">
+                <input required class="form-control" name="password" type="password" placeholder="Enter your password">
+            </div>
+            <div class="mb-3">
+                <input required class="form-control" name="email" type="email" placeholder="Enter your email">
+            </div>
+            <div class="mb-3">
+                <input required class="form-control" name="contact" type="number" placeholder="Enter your contact">
+            </div>
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </form>
+    </div>
 </body>
 </html>
