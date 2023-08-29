@@ -55,6 +55,16 @@ mysqli_close($conn);
     <title>Update Profile</title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #343a40;
+        }
+
+        h1, h2, h3, h4, h5, h6, label {
+            color: #fff;
+        }
+
+    </style>
 </head>
 <body>
 
