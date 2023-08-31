@@ -41,6 +41,8 @@ if (!isset($name) || !isset($contact) || !isset($email)) {
 
     <h2 class="mb-3">Welcome <?php echo $name ?></h2>
 
+    <br>
+
     <p>Here are your Details:</p>
 
     <div class="table-responsive rounded">
@@ -62,6 +64,56 @@ if (!isset($name) || !isset($contact) || !isset($email)) {
             </tr>
         </tbody>
     </table>
+
+    <?php
+    
+    include_once("db_connection.php");
+
+    $query = "SELECT * FROM students;";
+    $result = mysqli_query($conn, $query);
+
+    ?>
+
+    <p>Here are all the students in your database.</p>
+
+    <table class="table table-bordered table-striped table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>Name</th>
+                <th>Contact</th>
+                <th>Email</th>
+                <th>Register No</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+
+            
+            if (mysqli_num_rows($result) > 0){
+                // Output
+
+                while($row = mysqli_fetch_assoc($result)){
+                    echo "
+                <tr>
+                    <td>".$row["regNo"] ."</td>
+                    <td>".$row["username"] ."</td>
+                    <td>".$row["password"] ."</td>
+                    <td>".$row["email"] ."</td>
+                    <td><a href=update.php?regNo=".$row["regNo"].">Update</a>
+                    <td><a href=delete.php?regNo=".$row["regNo"].">Delete</a>
+                </tr>
+                    ";
+                }
+
+            }
+
+
+            ?>
+        </tbody>
+    </table>
+
 </div>
 
 

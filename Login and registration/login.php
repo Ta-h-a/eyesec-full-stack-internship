@@ -31,6 +31,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $_SESSION['contact'] = $row['contact'];
             $_SESSION['email'] = $row['email'];
             $_SESSION['regNo'] = $row['regNo'];
+            $_SESSION['password'] = $row['password'];
 
 
             header("location:index.php");
