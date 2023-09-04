@@ -105,6 +105,7 @@ if (!isset($name) || !isset($contact) || !isset($email)) {
                     <td><a href=delete.php?regNo=".$row["regNo"].">Delete</a>
                 </tr>
                     ";
+                    
                 }
 
             }

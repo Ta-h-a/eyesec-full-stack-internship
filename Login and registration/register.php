@@ -41,6 +41,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             
             if($result){
                 echo 'Registration Successful';
+                header("location:login.php");
             }else{
                 echo 'Error in the query';
             }
